@@ -3,11 +3,7 @@ import styles from './Home.module.scss';
 
 const cx = classNames.bind(styles);
 function Home() {
-    return (
-        <div className={cx('wrapper')}>
-            <h2>HomePage</h2>
-        </div>
-    );
+    return <div className={cx('wrapper')}></div>;
 }
 
 export default Home;

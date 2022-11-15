@@ -8,13 +8,13 @@
     --default-layout-header-height: 65px;
     --default-layout-width: 1190px;
 
-    --default-content-height: 550px;
+    --default-content-height: 520px;
 
-    --default-bar-height: 600px;
+    --default-bar-height: 570px;
 
     // Default layout blur
-    --default-layout--blur: 1px;
-    --default-content--blur: 5px;
+    --default-layout--blur: 8px;
+    --default-content--blur: 30px;
 }
 
 * {
@@ -32,4 +32,5 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizespeed;
+    color: rgb(245, 241, 241);
 }

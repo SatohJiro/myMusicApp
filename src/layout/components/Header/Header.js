@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import Player from '~/components/Player';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import PlayerBar from '~/components/PlayerBar';
 
 const cx = classNames.bind(styles);
-const avatar = true;
+// const avatar = true;
 
 function Header() {
     return (
@@ -22,7 +22,7 @@ function Header() {
                     </button>
                 </div> */}
 
-                <Player></Player>
+                <PlayerBar></PlayerBar>
 
                 {/* <div className={cx('avatar-wrapper')}>
                     {avatar ? (

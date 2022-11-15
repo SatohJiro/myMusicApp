@@ -1,0 +1,42 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.info-detail-wrapper {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-overview-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .overview {
+        display: flex;
+        flex-direction: column;
+    }
+    .avatar {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-color: transparent;
+        box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5), 0 0 5px 10px rgba(255, 255, 255, 0.3);
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        img {
+            position: relative;
+            left: -10px;
+            border-radius: 50%;
+            width: 100%;
+            height: 190%;
+            object-fit: contain;
+        }
+    }
+}
