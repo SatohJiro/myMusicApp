@@ -1,0 +1,19 @@
+.wrapper {
+    background-image: url('../../assets/image/10-3.jpg');
+    object-fit: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    margin: 25px 25px 25px 25px;
+    height: var(--default-content-height);
+    background-color: rgba($color: #afc6ff, $alpha: 0.2);
+    backdrop-filter: blur(var(--default-content--blur));
+    border-radius: 50px;
+}
