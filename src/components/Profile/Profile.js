@@ -1,16 +1,44 @@
 import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
 import avatar from '../../assets/image/myAvatar1.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDumbbell, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 function Profile() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('info-detail-wrapper')}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting
+                <div className={cx('field-wrapper')}>
+                    <div className={cx('field-tile')}>
+                        <span className={cx('tile-icon')}>
+                            <FontAwesomeIcon icon={faDumbbell}></FontAwesomeIcon>
+                        </span>
+                        STRENGTHS
+                    </div>
+                    <div className={cx('field-wrapper')}>
+                        <ul className={cx('list-item')}>
+                            <li className={cx('list-item')}>Creativity </li>
+                            <li className={cx('list-item')}>Flexibility </li>
+                            <li className={cx('list-item')}>Continuous Learning</li>
+                            <li className={cx('list-item')}>Dedication </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className={cx('field-wrapper')}>
+                    <div className={cx('field-tile')}>
+                        <span className={cx('tile-icon')}>
+                            <FontAwesomeIcon icon={faLinkSlash}></FontAwesomeIcon>
+                        </span>
+                        WEEKNESSES
+                    </div>
+                    <div className={cx('field-wrapper')}>
+                        <ul className={cx('list-item')}>
+                            <li className={cx('list-item')}>Emotive</li>
+                            <li className={cx('list-item')}>Ambitious</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div className={cx('info-overview-wrapper')}>
                 <div className={cx('overview')}>

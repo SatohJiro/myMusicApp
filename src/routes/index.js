@@ -1,17 +1,17 @@
 // Pages
 import Home from '~/pages/Home';
-import Following from '~/pages/Following';
+import Contact from '~/pages/Contact';
 import Profile from '~/pages/Profile';
-import Upload from '~/pages/Upload';
-import Search from '~/pages/Search';
+import Project from '~/pages/Project';
+// import Upload from '~/pages/Upload';
 
 // Public routes
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/following', component: Following },
     { path: '/profile', component: Profile },
-    { path: '/upload', component: Upload },
-    { path: '/search', component: Search, layout: null },
+    { path: '/contact', component: Contact },
+    { path: '/project', component: Project },
+    // { path: '/search', component: Search, layout: null },
 ];
 
 const privateRoutes = [];

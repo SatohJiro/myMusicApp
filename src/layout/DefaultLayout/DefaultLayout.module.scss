@@ -1,7 +1,11 @@
 .wrapper {
-    object-fit: contain;
-    background-size: cover;
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -17,9 +21,94 @@
     backdrop-filter: blur(var(--default-content--blur));
     border-radius: 50px;
 }
+
 .header-bar {
     width: 100%;
     height: 30px;
     background-color: rgba($color: #dddd, $alpha: 0.4);
     backdrop-filter: blur(var(--default-layout--blur));
+}
+
+//modal
+
+.modal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: rgba(58, 57, 57, 0.867), $alpha: 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+.modal-content {
+    width: 60%;
+    height: 70%;
+    background-color: rgba($color: #fff, $alpha: 0.2);
+    backdrop-filter: blur(var(--default-layout--blur));
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: auto;
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+
+        .modal-title {
+            font-size: 24px;
+            padding: 20px 30px;
+            margin: 0;
+        }
+        .modal-close-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            .modal-close-icon {
+                color: #fff;
+                height: 60%;
+            }
+        }
+    }
+}
+.modal-field-wrapper {
+    .modal-field-title {
+        font-size: 16px;
+        padding: 20px 30px;
+        margin: 0;
+    }
+    .modal-item-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 130px;
+            height: 100px;
+            margin: 10px 30px;
+            cursor: pointer;
+            .item-img {
+                width: 100%;
+                height: 80%;
+                border-radius: 10px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            .item-title {
+                font-size: 13px;
+            }
+        }
+    }
 }

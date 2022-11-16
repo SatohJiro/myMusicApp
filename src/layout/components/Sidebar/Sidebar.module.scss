@@ -27,6 +27,12 @@
             border-radius: 50%;
             list-style: none;
             cursor: pointer;
+            &:hover {
+                background-color: rgba($color: #dddd, $alpha: 0.5);
+            }
+            &.active {
+                box-shadow: 0 0 0 3px rgba($color: #dddd, $alpha: 1);
+            }
         }
     }
 }
@@ -47,4 +53,15 @@
     color: white;
     width: 25px;
     height: 25px;
+}
+.action-setting:hover {
+    animation: rotate 4s linear;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(280deg);
+    }
 }

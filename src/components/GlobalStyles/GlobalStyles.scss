@@ -13,7 +13,7 @@
     --default-bar-height: 570px;
 
     // Default layout blur
-    --default-layout--blur: 8px;
+    --default-layout--blur: 5px;
     --default-content--blur: 30px;
 }
 
@@ -33,4 +33,45 @@ body {
     line-height: 1.5;
     text-rendering: optimizespeed;
     color: rgb(245, 241, 241);
+}
+
+svg {
+    outline: none;
+    stroke: transparent;
+    stroke-width: 0px;
+}
+
+// ::-webkit-scrollbar {
+//     width: 5px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//     background: #f1f1f1;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//     background: #888;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//     background: #555;
+// }
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
 }

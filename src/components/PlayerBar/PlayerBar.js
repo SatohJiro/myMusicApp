@@ -8,12 +8,13 @@ import {
     faRepeat,
     faShuffle,
     faVolumeHigh,
+    faVolumeMute,
     faWindowRestore,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './PlayerBar.module.scss';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import TimeSlider from 'react-input-slider';
 
 import Audios from '~/assets/Music';
@@ -23,11 +24,22 @@ const audios = Audios;
 
 function Player() {
     const audioRef = useRef();
+    const volumeBarRef = useRef();
 
     const [audioIndex, setAudioIndex] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [volume, setVolume] = useState(0.5);
+    const [isShowVolumeBar, setShowVolumeBar] = useState(false);
     const [isPlay, setPlay] = useState(false);
+
+    useEffect(() => {
+        if (isShowVolumeBar) {
+            setTimeout(() => {
+                setShowVolumeBar(!isShowVolumeBar);
+            }, 4000);
+        }
+    }, [isShowVolumeBar]);
 
     const handleLoadedData = () => {
         setDuration(audioRef.current.duration);
@@ -65,6 +77,13 @@ function Player() {
             setPlay(true);
             audioRef.current.play();
         }
+    };
+    const handleVolumeChange = ({ y }) => {
+        audioRef.current.volume = y;
+        setVolume(y);
+    };
+    const handleShowVolumeBar = () => {
+        setShowVolumeBar(!isShowVolumeBar);
     };
 
     return (
@@ -172,21 +191,49 @@ function Player() {
                 </button>
 
                 <div className={cx('zm-player-volume')}>
-                    <button className={cx('action-right')} tabIndex="0">
-                        <FontAwesomeIcon className={cx('icon')} icon={faVolumeHigh}></FontAwesomeIcon>
+                    <button className={cx('action-right', 'action-volumn')} tabIndex="0">
+                        {volume === 0 ? (
+                            <FontAwesomeIcon
+                                className={cx('icon')}
+                                icon={faVolumeMute}
+                                onClick={handleShowVolumeBar}
+                            ></FontAwesomeIcon>
+                        ) : (
+                            <FontAwesomeIcon
+                                className={cx('icon')}
+                                icon={faVolumeHigh}
+                                onClick={handleShowVolumeBar}
+                            ></FontAwesomeIcon>
+                        )}
                     </button>
-                    <div className={cx('zm-duration-bar')}>
-                        <div className={cx('zm-slider-bar')}>
-                            <div
-                                tabIndex="0"
-                                aria-valuemax="100"
-                                aria-valuemin="0"
-                                aria-valuenow="100"
-                                draggable="false"
-                                role="slider"
-                                className={cx('zm-slider-handle')}
-                            ></div>
-                        </div>
+                    <div ref={volumeBarRef} className={cx('wrapper-volumn-bar')}>
+                        <TimeSlider
+                            className={cx('slider-volumn-bar', isShowVolumeBar ? 'active-volume-bar' : null)}
+                            axis="y"
+                            ymax={1}
+                            ymin={0}
+                            y={volume}
+                            ystep={0.1}
+                            yreverse
+                            onChange={handleVolumeChange}
+                            styles={{
+                                track: {
+                                    backgroundColor: 'rgba(255,255,255,0.4)',
+                                    height: '5px',
+                                },
+                                active: {
+                                    backgroundColor: 'rgba(255,255,255,0.7)',
+                                    height: '5px',
+                                },
+                                thumb: {
+                                    marginTop: '1px',
+                                    width: '10px',
+                                    height: '10px',
+
+                                    borderRadius: '5px',
+                                },
+                            }}
+                        />
                     </div>
                 </div>
 
