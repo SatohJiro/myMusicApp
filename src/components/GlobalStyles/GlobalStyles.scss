@@ -72,6 +72,6 @@ svg {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: rgba($color: #afc6ff, $alpha: 0.2);
     border-radius: 10px;
 }

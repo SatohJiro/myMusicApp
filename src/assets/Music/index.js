@@ -4,6 +4,14 @@ import images from '~/assets/image';
 import HTCA from './HayTraoChoAnh.mp3';
 import GLAL from './GacLaiAuLo.mp3';
 import NNCA from './NoiNayCoAnh.mp3';
+import BDTNR from './BuongDoiTayNhauRa.mp3';
+import ECNHQ from './EmCuaNgayHomQua.mp3';
+import KB from './KhongBang.mp3';
+import KMDT from './KhuonMatDangThuong.mp3';
+import NDT from './NgayDauTien.mp3';
+import ADQVCD from './AnhDaQuenVoiCoDon.mp3';
+import Playah from './Playah.mp3';
+import VLDD from './VaiLanDonDua.mp3';
 
 const audios = [
     {
@@ -35,6 +43,54 @@ const audios = [
         title: 'Nơi Này Có Anh',
         artist: 'Sơn Tùng MTP',
         img: images[4].src,
+    },
+    {
+        src: BDTNR,
+        title: 'Buông Đôi Tay Nhau ra',
+        artist: 'Sơn Tùng MTP',
+        img: images[5].src,
+    },
+    {
+        src: ECNHQ,
+        title: 'Em Của Ngày Hôm Qua',
+        artist: 'Sơn Tùng MTP',
+        img: images[6].src,
+    },
+    {
+        src: KB,
+        title: 'Không Bằng',
+        artist: 'Rin',
+        img: images[7].src,
+    },
+    {
+        src: KMDT,
+        title: 'Khuôn Mặt Đáng Thương',
+        artist: 'Sơn Tùng MTP',
+        img: images[8].src,
+    },
+    {
+        src: NDT,
+        title: 'Ngày Đầu Tiên',
+        artist: 'Đức Phúc',
+        img: images[9].src,
+    },
+    {
+        src: ADQVCD,
+        title: 'Anh Đã Quen Với Cô Đơn',
+        artist: 'Sobin Hoàng Sơn',
+        img: images[10].src,
+    },
+    {
+        src: Playah,
+        title: 'Playah',
+        artist: 'Sobin Hoàng Sơn',
+        img: images[11].src,
+    },
+    {
+        src: VLDD,
+        title: 'Vài Lần Đón Đưa',
+        artist: 'Sobin Hoàng Sơn',
+        img: images[10].src,
     },
 ];
 export default audios;

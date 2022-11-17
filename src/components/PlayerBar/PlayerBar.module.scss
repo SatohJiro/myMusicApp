@@ -45,9 +45,11 @@
     border-radius: 50%;
     overflow: hidden;
     img {
-        animation: spin linear 10s infinite;
-        width: 100%;
-        height: auto;
+        animation: spin linear 12s infinite;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         object-fit: contain;
     }
 }
@@ -140,6 +142,27 @@
     line-height: 0;
     border: none;
     cursor: pointer;
+
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+        box-shadow: 0 0px 10px 5px rgba($color: #dddd, $alpha: 1);
+        background-color: rgba($color: #dddd, $alpha: 0.1);
+        background-position: 100% 0;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+    }
+    &.active {
+        box-shadow: 0 0 0 3px rgba($color: #dddd, $alpha: 1);
+    }
+
     .icon {
         width: 50%;
         height: 50%;

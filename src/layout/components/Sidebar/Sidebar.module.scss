@@ -17,7 +17,13 @@
     align-items: center;
     ul {
         li {
-            background-color: rgba($color: #dddd, $alpha: 0.25);
+            // background-color: rgba($color: #dddd, $alpha: 0.25);
+            background-image: linear-gradient(
+                to right,
+                rgba($color: #dddd, $alpha: 0.3),
+                rgba($color: rgba(209, 236, 243, 0.867), $alpha: 0.7)
+            );
+
             margin: 15px 0px;
             display: flex;
             justify-content: center;
@@ -27,8 +33,20 @@
             border-radius: 50%;
             list-style: none;
             cursor: pointer;
+
+            background-size: 300% 100%;
+            border-radius: 50px;
+            -moz-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            -webkit-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
             &:hover {
-                background-color: rgba($color: #dddd, $alpha: 0.5);
+                box-shadow: 0 4px 15px 3px rgba($color: #dddd, $alpha: 1);
+                background-position: 100% 0;
+                -moz-transition: all 0.4s ease-in-out;
+                -o-transition: all 0.4s ease-in-out;
+                -webkit-transition: all 0.4s ease-in-out;
+                transition: all 0.4s ease-in-out;
             }
             &.active {
                 box-shadow: 0 0 0 3px rgba($color: #dddd, $alpha: 1);

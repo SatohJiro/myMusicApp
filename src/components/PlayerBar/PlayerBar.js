@@ -32,6 +32,8 @@ function Player() {
     const [volume, setVolume] = useState(0.5);
     const [isShowVolumeBar, setShowVolumeBar] = useState(false);
     const [isPlay, setPlay] = useState(false);
+    const [isPlayRandom, setPlayRadom] = useState(false);
+    const [isPlayLoop, setPlayLoop] = useState(false);
 
     useEffect(() => {
         if (isShowVolumeBar) {
@@ -59,6 +61,15 @@ function Player() {
 
     const handleNextSong = () => {
         setAudioIndex((audioIndex + 1) % audios.length);
+    };
+    const handleAutoNextSong = () => {
+        if (isPlayLoop) {
+            audioRef.current.currentTime = 0;
+            setCurrentTime(0);
+            audioRef.current.play();
+        } else if (isPlayRandom) {
+            setAudioIndex(Math.floor(Math.random() * audios.length));
+        } else handleNextSong();
     };
     const handlePausePlayClick = () => {
         if (isPlay) {
@@ -117,7 +128,11 @@ function Player() {
             <div className={cx('player-controls__player-bar')}>
                 <div className={cx('actions-wrapper')}>
                     <div className={cx('actions')}>
-                        <button className={cx('action-item')} tabIndex="0">
+                        <button
+                            className={cx('action-item', isPlayRandom && !isPlayLoop ? 'active' : null)}
+                            tabIndex="0"
+                            onClick={() => setPlayRadom(!isPlayRandom)}
+                        >
                             <FontAwesomeIcon className={cx('icon')} icon={faShuffle}></FontAwesomeIcon>
                         </button>
                         <button className={cx('action-item')} tabIndex="0" onClick={handlePrevSong}>
@@ -133,7 +148,11 @@ function Player() {
                         <button className={cx('action-item')} tabIndex="0" onClick={handleNextSong}>
                             <FontAwesomeIcon className={cx('icon')} icon={faForward}></FontAwesomeIcon>
                         </button>
-                        <button className={cx('action-item')} tabIndex="0">
+                        <button
+                            className={cx('action-item', isPlayLoop ? 'active' : null)}
+                            tabIndex="0"
+                            onClick={() => setPlayLoop(!isPlayLoop)}
+                        >
                             <FontAwesomeIcon className={cx('icon')} icon={faRepeat}></FontAwesomeIcon>
                         </button>
                     </div>
@@ -164,8 +183,6 @@ function Player() {
                                     // backgroundColor: 'rgba(255,255,255,1)',
                                     backgroundImage: 'url(~/assets/image/cherry.png)',
                                     borderRadius: '5px',
-                                    // boxShadow:
-                                    //     '0 0 0 1px rgba(233, 66, 66,1),0 0 0 3px rgba(248, 252, 30,1),0 0 0 5px rgba(30, 252, 252,1)',
                                 },
                             }}
                         />
@@ -174,7 +191,7 @@ function Player() {
                             src={audios[audioIndex].src}
                             onLoadedData={handleLoadedData}
                             onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}
-                            onEnded={handleNextSong}
+                            onEnded={handleAutoNextSong}
                         />
                     </div>
                     <span className={cx('time', 'right')}>{formatTime(duration)}</span>
@@ -229,7 +246,6 @@ function Player() {
                                     marginTop: '1px',
                                     width: '10px',
                                     height: '10px',
-
                                     borderRadius: '5px',
                                 },
                             }}
