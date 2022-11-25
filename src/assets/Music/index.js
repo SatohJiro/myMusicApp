@@ -12,8 +12,23 @@ import NDT from './NgayDauTien.mp3';
 import ADQVCD from './AnhDaQuenVoiCoDon.mp3';
 import Playah from './Playah.mp3';
 import VLDD from './VaiLanDonDua.mp3';
+import Your from './YoruNiKakeru.mp3';
+import Nade from './Nandemonaiya.mp3';
+import Sparkle from './Sparkle.mp3';
 
 const audios = [
+    {
+        src: Nade,
+        title: 'Nandemonaiya',
+        artist: 'Radwimps',
+        img: images[14].src,
+    },
+    {
+        src: Sparkle,
+        title: 'Sparkle',
+        artist: 'Radwimps',
+        img: images[14].src,
+    },
     {
         src: NECD,
         title: 'Người Em Cố Đô',
@@ -90,7 +105,13 @@ const audios = [
         src: VLDD,
         title: 'Vài Lần Đón Đưa',
         artist: 'Sobin Hoàng Sơn',
-        img: images[10].src,
+        img: images[12].src,
+    },
+    {
+        src: Your,
+        title: 'Yoru Ni Kakeru',
+        artist: 'Yoasobi',
+        img: images[13].src,
     },
 ];
 export default audios;

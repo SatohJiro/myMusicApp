@@ -25,14 +25,12 @@
     }
 }
 
-.list-item {
-}
-
 .info-overview-wrapper {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    animation: fadefromright 0.4s linear;
     .overview {
         display: flex;
         flex-direction: column;
@@ -57,5 +55,15 @@
             height: 190%;
             object-fit: contain;
         }
+    }
+}
+@keyframes fadefromright {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
     }
 }

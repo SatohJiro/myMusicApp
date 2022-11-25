@@ -9,7 +9,7 @@ import React from 'react';
 const cx = classNames.bind(styles);
 function Sidebar({ onClickModal }) {
     const tabs = [{ name: 'Home' }, { name: 'Profile' }, { name: 'Contact' }, { name: 'Project' }];
-    const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState('Home');
     const handleClick = (name) => {
         setActiveTab(name);
     };

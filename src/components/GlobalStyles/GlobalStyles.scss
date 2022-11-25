@@ -1,5 +1,6 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 :root {
     --primary: #fe2c55;
@@ -28,11 +29,12 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizespeed;
     color: rgb(245, 241, 241);
+    user-select: none;
 }
 
 svg {

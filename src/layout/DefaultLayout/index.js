@@ -16,9 +16,7 @@ function DefaultLayout({ children }) {
     const backgroundRef = useRef();
 
     const [isShowModal, setShowModal] = useState(false);
-    const [currentBg, setCurrentBg] = useState(listBg[0]);
-    console.log(listBg);
-
+    const [currentBg, setCurrentBg] = useState(listBg[5]);
     return (
         <div
             ref={backgroundRef}

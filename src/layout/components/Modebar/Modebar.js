@@ -1,16 +1,16 @@
 import classNames from 'classnames/bind';
 import styles from './Modebar.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressCard, faFile, faGear, faHouse, faPhone } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faAddressCard, faFile, faGear, faHouse, faPhone } from '@fortawesome/free-solid-svg-icons';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function Modebar() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('actions-wrapper')}>
-                <ul>
+                {/* <ul>
                     <li>
                         <Link to="/">
                             <FontAwesomeIcon
@@ -64,7 +64,7 @@ function Modebar() {
                             data-offset="{'right': 20}"
                         ></FontAwesomeIcon>
                     </li>
-                </ul>
+                </ul> */}
             </div>
         </div>
     );
