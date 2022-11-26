@@ -5,9 +5,18 @@ import styles from './Card.module.scss';
 import { BiUser } from 'react-icons/bi';
 import { BsPen } from 'react-icons/bs';
 
+import { useSwiperSlide } from 'swiper/react';
+import { useEffect } from 'react';
+
 const cx = classNames.bind(styles);
 
-function Card({ data }) {
+function Card({ data, onActice }) {
+    const swiperSlide = useSwiperSlide();
+    useEffect(() => {
+        if (swiperSlide.isActive) {
+            onActice(data);
+        }
+    });
     const numMember = [];
     for (let i = 0; i < data.numMem; i++) {
         numMember.push('1');

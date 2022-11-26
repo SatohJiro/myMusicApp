@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressCard, faFile, faGear, faHouse, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard, faFile, faGear, faHouse, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
 import { Link } from 'react-router-dom';
@@ -8,8 +8,15 @@ import React from 'react';
 
 const cx = classNames.bind(styles);
 function Sidebar({ onClickModal }) {
-    const tabs = [{ name: 'Home' }, { name: 'Profile' }, { name: 'Contact' }, { name: 'Project' }];
-    const [activeTab, setActiveTab] = useState('Home');
+    const tabs = [{ name: 'home' }, { name: 'profile' }, { name: 'contact' }, { name: 'project' }];
+    const handleTabActiveReload = (url) => {
+        let indexDelim = url.lastIndexOf('/');
+        if (indexDelim === url.length - 1) return tabs[0].name;
+        let path = url.substring(indexDelim + 1);
+        return path;
+    };
+
+    const [activeTab, setActiveTab] = useState(handleTabActiveReload(window.location.href));
     const handleClick = (name) => {
         setActiveTab(name);
     };
@@ -54,7 +61,7 @@ function Sidebar({ onClickModal }) {
                             className={cx(tabs[2].name === activeTab ? 'active' : null)}
                         >
                             <FontAwesomeIcon
-                                icon={faPhone}
+                                icon={faMapLocationDot}
                                 className={cx('action-icon')}
                                 data-tip="Contact"
                                 data-place="right"

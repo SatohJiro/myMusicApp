@@ -17,9 +17,11 @@ imgaes[imgaes.length - 1].listBg.forEach((item) => {
         projects.push(item);
     }
 });
+
 const cx = classNames.bind(styles);
 function Project() {
     const [project, setProject] = useState(projects[0]);
+
     return (
         <div className={cx('wrapper')}>
             <Swiper
@@ -43,7 +45,7 @@ function Project() {
                     return (
                         item.type === 'project' && (
                             <SwiperSlide className={cx('swiper-slide')} key={index}>
-                                {({ isActive }) => <Card data={item}>{isActive && setProject(item)}</Card>}
+                                <Card data={item} onActice={setProject}></Card>
                             </SwiperSlide>
                         )
                     );

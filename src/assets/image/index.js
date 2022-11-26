@@ -144,12 +144,12 @@ const imgaes = [
             {
                 title: 'theme2',
                 type: 'theme',
-                url: `linear-gradient(to right, #02aab0, #029e84)`,
+                url: `linear-gradient(to right,  #A14ED9, #1D0259)`,
             },
             {
                 title: 'theme3',
                 type: 'theme',
-                url: `linear-gradient(to right, #ba5370, #f5ba9b)`,
+                url: `linear-gradient(to right, #BF41B7,#F20C8B )`,
             },
             {
                 title: 'theme4',
