@@ -25,12 +25,15 @@ function Sidebar({ onClickModal, onClickMenu, isShowMenu }) {
             <div className={cx('actions-wrapper')}>
                 <div className={cx('menu-wrapper')}>
                     <div
-                        className={cx('action-btn')}
+                        className={cx('action-btn', isShowMenu ? 'active' : 'null')}
                         onClick={() => {
                             onClickMenu(!isShowMenu);
                         }}
                     >
-                        <FontAwesomeIcon icon={faBars} className={cx('action-icon')}></FontAwesomeIcon>
+                        <FontAwesomeIcon
+                            icon={faBars}
+                            className={cx('action-icon', isShowMenu ? 'menu-active' : 'non-active')}
+                        ></FontAwesomeIcon>
                     </div>
                 </div>
                 <ul className={cx('list-action')}>

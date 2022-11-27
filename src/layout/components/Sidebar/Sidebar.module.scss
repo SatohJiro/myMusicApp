@@ -90,6 +90,14 @@
     justify-content: flex-end;
     .action-btn {
         margin-right: 20px;
+        .non-active {
+            transition: 0.5s;
+            transform: rotate(0deg);
+        }
+        .menu-active {
+            transition: 0.5s;
+            transform: rotate(90deg);
+        }
     }
 }
 

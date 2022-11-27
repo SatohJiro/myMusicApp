@@ -40,4 +40,12 @@
     .container {
         flex-direction: column;
     }
+    .content {
+        padding: 0px;
+        margin: 0px;
+        // height: var(--default-content-height);
+        background-color: rgba($color: #afc6ff, $alpha: 0.2);
+        backdrop-filter: blur(var(--default-content--blur));
+        border-radius: 0px;
+    }
 }

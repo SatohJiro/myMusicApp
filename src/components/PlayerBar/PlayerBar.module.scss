@@ -252,15 +252,16 @@
 }
 
 .music-infor {
+    display: none;
     background-color: rgba($color: rgba(121, 113, 113, 0.867), $alpha: 0.5);
     width: 100%;
     height: 40px;
-    display: flex;
     align-items: center;
-    justify-content: space-around;
+
     .img-wrapper {
         height: 40px;
         width: 40px;
+        margin-left: 5px;
         overflow: hidden;
         border-radius: 50%;
         display: flex;
@@ -272,8 +273,10 @@
         }
     }
     .title-wrapper {
+        flex: 1;
         display: flex;
         flex-direction: column;
+        padding-right: 45px;
         .author {
             font-size: 13px;
         }
@@ -281,6 +284,9 @@
 }
 
 @media screen and (max-width: 1210px) {
+    .music-infor {
+        display: flex;
+    }
     .wrapper {
         height: 100%;
         width: 100%;
