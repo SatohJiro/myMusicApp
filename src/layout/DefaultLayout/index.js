@@ -5,6 +5,7 @@ import Header from '~/layout/components/Header';
 import Sidebar from '~/layout/components/Sidebar';
 import Modebar from '~/layout/components/Modebar';
 import Modal from '~/components/Modal';
+import Menu from '~/components/Menu';
 
 import imgaes from '~/assets/image';
 
@@ -15,6 +16,7 @@ const listBg = imgaes[imgaes.length - 1].listBg;
 function DefaultLayout({ children }) {
     const backgroundRef = useRef();
 
+    const [isShowMenu, setShowMenu] = useState(false);
     const [isShowModal, setShowModal] = useState(false);
     const [currentBg, setCurrentBg] = useState(listBg[5]);
     return (
@@ -27,7 +29,7 @@ function DefaultLayout({ children }) {
         >
             <div className={cx('header-bar')}></div>
             <div className={cx('container')}>
-                <Sidebar onClickModal={setShowModal} />
+                <Sidebar onClickModal={setShowModal} onClickMenu={setShowMenu} isShowMenu={isShowMenu} />
                 <div className={cx('content')}>{children}</div>
                 <Modebar></Modebar>
             </div>
@@ -39,6 +41,7 @@ function DefaultLayout({ children }) {
                     dataBG={listBg}
                 ></Modal>
             )}
+            {isShowMenu && <Menu onClickWrapper={setShowMenu}></Menu>}
             <Header />
         </div>
     );

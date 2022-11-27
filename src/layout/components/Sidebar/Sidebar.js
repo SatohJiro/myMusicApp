@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressCard, faFile, faGear, faHouse, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard, faBars, faFile, faGear, faHouse, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 import React from 'react';
 
 const cx = classNames.bind(styles);
-function Sidebar({ onClickModal }) {
+function Sidebar({ onClickModal, onClickMenu, isShowMenu }) {
     const tabs = [{ name: 'home' }, { name: 'profile' }, { name: 'contact' }, { name: 'project' }];
     const handleTabActiveReload = (url) => {
         let indexDelim = url.lastIndexOf('/');
@@ -23,12 +23,22 @@ function Sidebar({ onClickModal }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('actions-wrapper')}>
-                <ul>
+                <div className={cx('menu-wrapper')}>
+                    <div
+                        className={cx('action-btn')}
+                        onClick={() => {
+                            onClickMenu(!isShowMenu);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faBars} className={cx('action-icon')}></FontAwesomeIcon>
+                    </div>
+                </div>
+                <ul className={cx('list-action')}>
                     <Link to="/">
                         <li
                             key={tabs[0].name}
                             onClick={() => handleClick(tabs[0].name)}
-                            className={cx(tabs[0].name === activeTab ? 'active' : null)}
+                            className={cx('action-btn', tabs[0].name === activeTab ? 'active' : null)}
                         >
                             <FontAwesomeIcon
                                 icon={faHouse}
@@ -43,7 +53,7 @@ function Sidebar({ onClickModal }) {
                         <li
                             key={tabs[1].name}
                             onClick={() => handleClick(tabs[1].name)}
-                            className={cx(tabs[1].name === activeTab ? 'active' : null)}
+                            className={cx('action-btn', cx(tabs[1].name === activeTab ? 'active' : null))}
                         >
                             <FontAwesomeIcon
                                 icon={faAddressCard}
@@ -58,7 +68,7 @@ function Sidebar({ onClickModal }) {
                         <li
                             key={tabs[2].name}
                             onClick={() => handleClick(tabs[2].name)}
-                            className={cx(tabs[2].name === activeTab ? 'active' : null)}
+                            className={cx('action-btn', cx(tabs[2].name === activeTab ? 'active' : null))}
                         >
                             <FontAwesomeIcon
                                 icon={faMapLocationDot}
@@ -73,7 +83,7 @@ function Sidebar({ onClickModal }) {
                         <li
                             key={tabs[tabs[3].name]}
                             onClick={() => handleClick(tabs[3].name)}
-                            className={cx(tabs[3].name === activeTab ? 'active' : null)}
+                            className={cx('action-btn', cx(tabs[3].name === activeTab ? 'active' : null))}
                         >
                             <FontAwesomeIcon
                                 icon={faFile}

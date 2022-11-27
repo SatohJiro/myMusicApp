@@ -250,3 +250,54 @@
         }
     }
 }
+
+.music-infor {
+    background-color: rgba($color: rgba(121, 113, 113, 0.867), $alpha: 0.5);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .img-wrapper {
+        height: 40px;
+        width: 40px;
+        overflow: hidden;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .title-wrapper {
+        display: flex;
+        flex-direction: column;
+        .author {
+            font-size: 13px;
+        }
+    }
+}
+
+@media screen and (max-width: 1210px) {
+    .wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .player-controls__container {
+        height: 60px;
+        min-width: 100%;
+        padding: 0;
+    }
+    .player-controls-right {
+        display: none;
+    }
+    .player-controls-left {
+        display: none;
+    }
+    .player-controls__player-bar {
+        flex-grow: 1;
+        max-width: none;
+    }
+}

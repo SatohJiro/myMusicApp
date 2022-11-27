@@ -33,4 +33,11 @@
     backdrop-filter: blur(var(--default-layout--blur));
 }
 
-//modal
+@media screen and (max-width: 1210px) {
+    .header-bar {
+        display: none;
+    }
+    .container {
+        flex-direction: column;
+    }
+}

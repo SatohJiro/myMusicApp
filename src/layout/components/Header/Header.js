@@ -11,30 +11,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                {/* <div className={cx('logo')}>
-                    <img src={require('../../../assets/image/logo.png')} alt="logo"></img>
-                </div> */}
-
-                {/* <div className={cx('search')}>
-                    <input placeholder="Seach Music" spellCheck={false}></input>
-                    <button className={cx('search-btn')}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </div> */}
-
                 <PlayerBar></PlayerBar>
-
-                {/* <div className={cx('avatar-wrapper')}>
-                    {avatar ? (
-                        <img
-                            src={require('../../../assets/image/download.jpg')}
-                            className={cx('avatar-img')}
-                            alt="avatar"
-                        ></img>
-                    ) : (
-                        <FontAwesomeIcon icon={faUser} className={cx('avatar-img')}></FontAwesomeIcon>
-                    )}
-                </div> */}
             </div>
         </header>
     );

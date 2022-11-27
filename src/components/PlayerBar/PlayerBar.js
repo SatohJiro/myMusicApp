@@ -98,166 +98,179 @@ function Player() {
     };
 
     return (
-        <div className={cx('player-controls__container')}>
-            <div className={cx('player-controls-left')}>
-                <div className={cx('media')}>
-                    <div className={cx('media-left')}>
-                        <div className={cx('image-wrapper')}>
-                            <img src={audios[audioIndex].img} alt="" />
-                        </div>
+        <div className={cx('wrapper')}>
+            <div className={cx('music-infor')}>
+                <div className={cx('img-wrapper')}>
+                    <img src={audios[audioIndex].img} alt="" />
+                </div>
+                <div className={cx('title-wrapper')}>
+                    <span className={cx('item-title', 'title')}>{audios[audioIndex].title}</span>
+                    <div className={cx('author')} href="/Ha-Anh-Tuan">
+                        {audios[audioIndex].artist}
                     </div>
+                </div>
+            </div>
 
-                    <div className={cx('media-content')}>
-                        <div className={cx('song-info-wrapper')}>
-                            <span className={cx('song-title-item')}>
-                                <div className={cx('title-wrapper')}>
-                                    <span className={cx('item-title', 'title')}>{audios[audioIndex].title}</span>
-                                </div>
-                            </span>
+            <div className={cx('player-controls__container')}>
+                <div className={cx('player-controls-left')}>
+                    <div className={cx('media')}>
+                        <div className={cx('media-left')}>
+                            <div className={cx('image-wrapper')}>
+                                <img src={audios[audioIndex].img} alt="" />
+                            </div>
                         </div>
+                        <div className={cx('media-content')}>
+                            <div className={cx('song-info-wrapper')}>
+                                <span className={cx('song-title-item')}>
+                                    <div className={cx('title-wrapper')}>
+                                        <span className={cx('item-title', 'title')}>{audios[audioIndex].title}</span>
+                                    </div>
+                                </span>
+                            </div>
 
-                        <div className={cx('subtitle')}>
-                            <div className={cx('is-ghost')} href="/Ha-Anh-Tuan">
-                                {audios[audioIndex].artist}
+                            <div className={cx('subtitle')}>
+                                <div className={cx('is-ghost')} href="/Ha-Anh-Tuan">
+                                    {audios[audioIndex].artist}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div className={cx('player-controls__player-bar')}>
-                <div className={cx('actions-wrapper')}>
-                    <div className={cx('actions')}>
-                        <button
-                            className={cx('action-item', isPlayRandom && !isPlayLoop ? 'active' : null)}
-                            tabIndex="0"
-                            onClick={() => setPlayRadom(!isPlayRandom)}
-                        >
-                            <FontAwesomeIcon className={cx('icon')} icon={faShuffle}></FontAwesomeIcon>
-                        </button>
-                        <button className={cx('action-item')} tabIndex="0" onClick={handlePrevSong}>
-                            <FontAwesomeIcon className={cx('icon')} icon={faBackward}></FontAwesomeIcon>
-                        </button>
-                        <button className={cx('action-item')} tabIndex="0" onClick={handlePausePlayClick}>
-                            {isPlay ? (
-                                <FontAwesomeIcon className={cx('icon')} icon={faPause}></FontAwesomeIcon>
+                <div className={cx('player-controls__player-bar')}>
+                    <div className={cx('actions-wrapper')}>
+                        <div className={cx('actions')}>
+                            <button
+                                className={cx('action-item', isPlayRandom && !isPlayLoop ? 'active' : null)}
+                                tabIndex="0"
+                                onClick={() => setPlayRadom(!isPlayRandom)}
+                            >
+                                <FontAwesomeIcon className={cx('icon')} icon={faShuffle}></FontAwesomeIcon>
+                            </button>
+                            <button className={cx('action-item')} tabIndex="0" onClick={handlePrevSong}>
+                                <FontAwesomeIcon className={cx('icon')} icon={faBackward}></FontAwesomeIcon>
+                            </button>
+                            <button className={cx('action-item')} tabIndex="0" onClick={handlePausePlayClick}>
+                                {isPlay ? (
+                                    <FontAwesomeIcon className={cx('icon')} icon={faPause}></FontAwesomeIcon>
+                                ) : (
+                                    <FontAwesomeIcon className={cx('icon')} icon={faPlay}></FontAwesomeIcon>
+                                )}
+                            </button>
+                            <button className={cx('action-item')} tabIndex="0" onClick={handleNextSong}>
+                                <FontAwesomeIcon className={cx('icon')} icon={faForward}></FontAwesomeIcon>
+                            </button>
+                            <button
+                                className={cx('action-item', isPlayLoop ? 'active' : null)}
+                                tabIndex="0"
+                                onClick={() => setPlayLoop(!isPlayLoop)}
+                            >
+                                <FontAwesomeIcon className={cx('icon')} icon={faRepeat}></FontAwesomeIcon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className={cx('time-wrapper')}>
+                        <span className={cx('time', 'left')}>{formatTime(currentTime)}</span>
+                        <div className={cx('duration-bar')}>
+                            <TimeSlider
+                                className={cx('slider-bar')}
+                                axis="x"
+                                xmax={duration}
+                                x={currentTime}
+                                onChange={handleTimeSliderChange}
+                                styles={{
+                                    track: {
+                                        backgroundColor: 'rgba(255,255,255,0.4)',
+                                        height: '5px',
+                                    },
+                                    active: {
+                                        backgroundColor: 'rgba(255,255,255,0.7)',
+                                        height: '5px',
+                                    },
+                                    thumb: {
+                                        marginTop: '1px',
+                                        width: '10px',
+                                        height: '10px',
+                                        // backgroundColor: 'rgba(255,255,255,1)',
+                                        backgroundImage: 'url(~/assets/image/cherry.png)',
+                                        borderRadius: '5px',
+                                    },
+                                }}
+                            />
+                            <audio
+                                ref={audioRef}
+                                src={audios[audioIndex].src}
+                                onLoadedData={handleLoadedData}
+                                onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}
+                                onEnded={handleAutoNextSong}
+                            />
+                        </div>
+                        <span className={cx('time', 'right')}>{formatTime(duration)}</span>
+                    </div>
+                </div>
+
+                <div className={cx('player-controls-right')}>
+                    <button className={cx('action-right')} tabIndex="0">
+                        <FontAwesomeIcon className={cx('icon')} icon={faMicrophone}></FontAwesomeIcon>
+                    </button>
+
+                    <button className={cx('action-right')} tabIndex="0">
+                        <FontAwesomeIcon className={cx('icon')} icon={faWindowRestore}></FontAwesomeIcon>
+                    </button>
+
+                    <div className={cx('zm-player-volume')}>
+                        <button className={cx('action-right', 'action-volumn')} tabIndex="0">
+                            {volume === 0 ? (
+                                <FontAwesomeIcon
+                                    className={cx('icon')}
+                                    icon={faVolumeMute}
+                                    onClick={handleShowVolumeBar}
+                                ></FontAwesomeIcon>
                             ) : (
-                                <FontAwesomeIcon className={cx('icon')} icon={faPlay}></FontAwesomeIcon>
+                                <FontAwesomeIcon
+                                    className={cx('icon')}
+                                    icon={faVolumeHigh}
+                                    onClick={handleShowVolumeBar}
+                                ></FontAwesomeIcon>
                             )}
                         </button>
-                        <button className={cx('action-item')} tabIndex="0" onClick={handleNextSong}>
-                            <FontAwesomeIcon className={cx('icon')} icon={faForward}></FontAwesomeIcon>
-                        </button>
-                        <button
-                            className={cx('action-item', isPlayLoop ? 'active' : null)}
-                            tabIndex="0"
-                            onClick={() => setPlayLoop(!isPlayLoop)}
-                        >
-                            <FontAwesomeIcon className={cx('icon')} icon={faRepeat}></FontAwesomeIcon>
-                        </button>
+                        <div ref={volumeBarRef} className={cx('wrapper-volumn-bar')}>
+                            <TimeSlider
+                                className={cx('slider-volumn-bar', isShowVolumeBar ? 'active-volume-bar' : null)}
+                                axis="y"
+                                ymax={1}
+                                ymin={0}
+                                y={volume}
+                                ystep={0.1}
+                                yreverse
+                                onChange={handleVolumeChange}
+                                styles={{
+                                    track: {
+                                        backgroundColor: 'rgba(255,255,255,0.4)',
+                                        height: '5px',
+                                    },
+                                    active: {
+                                        backgroundColor: 'rgba(255,255,255,0.7)',
+                                        height: '5px',
+                                    },
+                                    thumb: {
+                                        marginTop: '1px',
+                                        width: '10px',
+                                        height: '10px',
+                                        borderRadius: '5px',
+                                    },
+                                }}
+                            />
+                        </div>
                     </div>
-                </div>
 
-                <div className={cx('time-wrapper')}>
-                    <span className={cx('time', 'left')}>{formatTime(currentTime)}</span>
-                    <div className={cx('duration-bar')}>
-                        <TimeSlider
-                            className={cx('slider-bar')}
-                            axis="x"
-                            xmax={duration}
-                            x={currentTime}
-                            onChange={handleTimeSliderChange}
-                            styles={{
-                                track: {
-                                    backgroundColor: 'rgba(255,255,255,0.4)',
-                                    height: '5px',
-                                },
-                                active: {
-                                    backgroundColor: 'rgba(255,255,255,0.7)',
-                                    height: '5px',
-                                },
-                                thumb: {
-                                    marginTop: '1px',
-                                    width: '10px',
-                                    height: '10px',
-                                    // backgroundColor: 'rgba(255,255,255,1)',
-                                    backgroundImage: 'url(~/assets/image/cherry.png)',
-                                    borderRadius: '5px',
-                                },
-                            }}
-                        />
-                        <audio
-                            ref={audioRef}
-                            src={audios[audioIndex].src}
-                            onLoadedData={handleLoadedData}
-                            onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}
-                            onEnded={handleAutoNextSong}
-                        />
-                    </div>
-                    <span className={cx('time', 'right')}>{formatTime(duration)}</span>
-                </div>
-            </div>
+                    <span className={cx('divide')}></span>
 
-            <div className={cx('player-controls-right')}>
-                <button className={cx('action-right')} tabIndex="0">
-                    <FontAwesomeIcon className={cx('icon')} icon={faMicrophone}></FontAwesomeIcon>
-                </button>
-
-                <button className={cx('action-right')} tabIndex="0">
-                    <FontAwesomeIcon className={cx('icon')} icon={faWindowRestore}></FontAwesomeIcon>
-                </button>
-
-                <div className={cx('zm-player-volume')}>
-                    <button className={cx('action-right', 'action-volumn')} tabIndex="0">
-                        {volume === 0 ? (
-                            <FontAwesomeIcon
-                                className={cx('icon')}
-                                icon={faVolumeMute}
-                                onClick={handleShowVolumeBar}
-                            ></FontAwesomeIcon>
-                        ) : (
-                            <FontAwesomeIcon
-                                className={cx('icon')}
-                                icon={faVolumeHigh}
-                                onClick={handleShowVolumeBar}
-                            ></FontAwesomeIcon>
-                        )}
+                    <button className={cx('action-right')} tabIndex="0">
+                        <FontAwesomeIcon className={cx('icon')} icon={faList}></FontAwesomeIcon>
                     </button>
-                    <div ref={volumeBarRef} className={cx('wrapper-volumn-bar')}>
-                        <TimeSlider
-                            className={cx('slider-volumn-bar', isShowVolumeBar ? 'active-volume-bar' : null)}
-                            axis="y"
-                            ymax={1}
-                            ymin={0}
-                            y={volume}
-                            ystep={0.1}
-                            yreverse
-                            onChange={handleVolumeChange}
-                            styles={{
-                                track: {
-                                    backgroundColor: 'rgba(255,255,255,0.4)',
-                                    height: '5px',
-                                },
-                                active: {
-                                    backgroundColor: 'rgba(255,255,255,0.7)',
-                                    height: '5px',
-                                },
-                                thumb: {
-                                    marginTop: '1px',
-                                    width: '10px',
-                                    height: '10px',
-                                    borderRadius: '5px',
-                                },
-                            }}
-                        />
-                    </div>
                 </div>
-
-                <span className={cx('divide')}></span>
-
-                <button className={cx('action-right')} tabIndex="0">
-                    <FontAwesomeIcon className={cx('icon')} icon={faList}></FontAwesomeIcon>
-                </button>
             </div>
         </div>
     );
