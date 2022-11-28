@@ -5,6 +5,14 @@
     backdrop-filter: blur(var(--default-layout--blur));
     display: flex;
     justify-content: center;
+    transition: transform 0.4s;
+}
+
+.hide {
+    transform: translateY(60px);
+}
+.non-hide {
+    transform: translateY(0px);
 }
 
 .inner {
@@ -13,10 +21,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-@media screen and (max-width: 1210px) {
-    .wrapper {
-        height: 100px;
-    }
 }

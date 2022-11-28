@@ -31,3 +31,10 @@
         opacity: 1;
     }
 }
+
+@media screen and(max-width:1210px) {
+    .profile-detail {
+        border-radius: 0;
+        padding: 15px;
+    }
+}

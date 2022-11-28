@@ -23,3 +23,31 @@
         margin-top: 20px;
     }
 }
+.title {
+    display: none;
+    margin-bottom: 10px;
+}
+
+@media screen and(max-width : 1210px) {
+    .wrapper {
+        margin-top: 15px;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .wrapper-swiper {
+        width: 85%;
+    }
+    .swiper-slide {
+        padding: 10px 10px 10px 0px;
+    }
+    .desc-wrapper {
+        margin: 30px 0;
+        min-height: 200px;
+        padding: 0 15px;
+        margin-left: 0px;
+        flex: none;
+    }
+    .title {
+        display: block;
+    }
+}

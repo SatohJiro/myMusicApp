@@ -16,12 +16,11 @@ function Profile() {
                         </span>
                         STRENGTHS
                     </div>
-                    <div className={cx('field-wrapper')}>
+                    <div className={cx('field-desc')}>
                         <ul className={cx('list-item')}>
-                            <li className={cx('list-item')}>Creativity </li>
-                            <li className={cx('list-item')}>Flexibility </li>
-                            <li className={cx('list-item')}>Continuous Learning</li>
-                            <li className={cx('list-item')}>Dedication </li>
+                            <li className={cx('item')}>Creativity </li>
+                            <li className={cx('item')}>Flexibility </li>
+                            <li className={cx('item')}>Dedication </li>
                         </ul>
                     </div>
                 </div>
@@ -32,10 +31,10 @@ function Profile() {
                         </span>
                         WEEKNESSES
                     </div>
-                    <div className={cx('field-wrapper')}>
+                    <div className={cx('field-desc')}>
                         <ul className={cx('list-item')}>
-                            <li className={cx('list-item')}>Emotive</li>
-                            <li className={cx('list-item')}>Ambitious</li>
+                            <li className={cx('item')}>Emotive</li>
+                            <li className={cx('item')}>Ambitious</li>
                         </ul>
                     </div>
                 </div>

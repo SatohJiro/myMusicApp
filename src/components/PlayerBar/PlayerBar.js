@@ -1,5 +1,6 @@
 import {
     faBackward,
+    faCircleDown,
     faForward,
     faList,
     faMicrophone,
@@ -12,9 +13,12 @@ import {
     faWindowRestore,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import classNames from 'classnames/bind';
 import styles from './PlayerBar.module.scss';
+
 import { useState, useRef, useEffect } from 'react';
+
 import TimeSlider from 'react-input-slider';
 
 import Audios from '~/assets/Music';
@@ -22,7 +26,7 @@ import Audios from '~/assets/Music';
 const cx = classNames.bind(styles);
 const audios = Audios;
 
-function Player() {
+function Player({ setHideInfor, isHideInfor }) {
     const audioRef = useRef();
     const volumeBarRef = useRef();
 
@@ -108,6 +112,14 @@ function Player() {
                     <div className={cx('author')} href="/Ha-Anh-Tuan">
                         {audios[audioIndex].artist}
                     </div>
+                </div>
+                <div
+                    className={cx('hide-wrapper', isHideInfor ? 'up' : 'down')}
+                    onClick={() => {
+                        setHideInfor(!isHideInfor);
+                    }}
+                >
+                    <FontAwesomeIcon icon={faCircleDown} className={cx('hide-icon')}></FontAwesomeIcon>
                 </div>
             </div>
 

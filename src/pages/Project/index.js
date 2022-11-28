@@ -10,6 +10,7 @@ import 'swiper/css/effect-fade';
 
 import imgaes from '~/assets/image';
 import { useState } from 'react';
+import useWindowDimensions from '~/hooks/Window';
 
 const projects = [];
 imgaes[imgaes.length - 1].listBg.forEach((item) => {
@@ -20,11 +21,15 @@ imgaes[imgaes.length - 1].listBg.forEach((item) => {
 
 const cx = classNames.bind(styles);
 function Project() {
+    const { height, width } = useWindowDimensions();
+    const slidesPerView = width > 700 ? 2 : 1;
     const [project, setProject] = useState(projects[0]);
 
     return (
         <div className={cx('wrapper')}>
+            <h3 className={cx('title')}>Project</h3>
             <Swiper
+                nothing={height}
                 effect={'coverflow'}
                 modules={[EffectCoverflow, Pagination]}
                 coverflowEffect={{
@@ -36,7 +41,7 @@ function Project() {
                 }}
                 pagination={true}
                 centeredSlides={true}
-                slidesPerView={2}
+                slidesPerView={slidesPerView}
                 className={cx('wrapper-swiper')}
                 spaceBetween={50}
                 grabCursor={true}

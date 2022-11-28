@@ -20,12 +20,6 @@
     margin-right: 20px;
     display: flex;
     flex-direction: column;
-
-    .contact-desc-icon {
-        width: 17px;
-        height: 17px;
-        margin-bottom: 5px;
-    }
     .contact-desc {
         font-size: 16px;
         padding: 15px;
@@ -88,8 +82,69 @@
         opacity: 0.7;
     }
 }
+
 .map {
     width: 90%;
     height: 90%;
     box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.5), 0 0 1px 5px rgba(255, 255, 255, 0.3);
+}
+
+@media screen and(max-width:1210px) {
+    .contact-title-wrapper {
+        margin: 15px 0;
+    }
+    .contact-content {
+        flex-direction: column;
+    }
+    .contact-infor-wrapper {
+        width: 100%;
+        margin-right: 0px;
+        .contact-desc {
+            padding: 10px;
+            border-radius: 0px;
+            animation: fadefromtop 0.4s linear;
+        }
+        .contact-list {
+            padding-left: 10px;
+        }
+    }
+    .contacts-social {
+        .contact-icon + .contact-icon {
+            margin-left: 10px;
+        }
+    }
+    //map
+    .map-wrapper {
+        margin-top: 30px;
+        flex: none;
+        height: 370px;
+        box-shadow: none;
+        border-radius: 0px;
+        animation: fadefrombottom 0.4s linear;
+    }
+    .map {
+        width: 93%;
+        height: 95%;
+        box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 2px 3px rgba(255, 255, 255, 0.3);
+    }
+}
+@keyframes fadefromtop {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes fadefrombottom {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }

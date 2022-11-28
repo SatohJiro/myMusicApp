@@ -43,9 +43,14 @@
     .content {
         padding: 0px;
         margin: 0px;
+        margin-top: 50px;
         // height: var(--default-content-height);
         background-color: rgba($color: #afc6ff, $alpha: 0.2);
         backdrop-filter: blur(var(--default-content--blur));
         border-radius: 0px;
+        margin-bottom: 110px;
+    }
+    .playbar {
+        height: 100px;
     }
 }

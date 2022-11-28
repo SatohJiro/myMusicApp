@@ -135,7 +135,7 @@ function Home() {
                         </div>
                     </div>
                     {/* UX/UI */}
-                    <div className={cx('skill-wrapper')}>
+                    <div className={cx('skill-wrapper', 'last-skill')}>
                         <div className={cx('skill-title-wrapper')}>
                             <BiDesktop className={cx('icon')} />
                             <span className={cx('title')}>UX/UI</span>

@@ -19,6 +19,7 @@ function DefaultLayout({ children }) {
     const [isShowMenu, setShowMenu] = useState(false);
     const [isShowModal, setShowModal] = useState(false);
     const [currentBg, setCurrentBg] = useState(listBg[5]);
+
     return (
         <div
             ref={backgroundRef}
@@ -42,7 +43,7 @@ function DefaultLayout({ children }) {
                 ></Modal>
             )}
             {isShowMenu && <Menu onClickWrapper={setShowMenu}></Menu>}
-            <Header />
+            <Header className={cx('playbar')} />
         </div>
     );
 }
