@@ -172,7 +172,7 @@ const imgaes = [
                 git: 'https://github.com/SatohJiro/DFS-BFS-Dijkstra_Algorithm_Demo',
                 tool: <FaJava />,
                 descContent:
-                    'In this subject, we learn about basic concepts of graphs, build and process graphs on computers, special types of graphs (Euler, Hamilton, Tree,...), Real-life problems are solved graphically',
+                    'In this subject, we learn about basic concepts of graphs, build and process graphs on computers, special types of graphs (Euler, Hamilton, Tree, ...), real-life problems are solved graphically',
             },
 
             {
