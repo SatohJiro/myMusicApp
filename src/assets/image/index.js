@@ -1,4 +1,6 @@
 import NECD from './NECD.jpg';
+import ADRNYN from './AnhDanhRoiNguoiYeuNay.jpg';
+import RK from './RangKhon.jpg';
 import Suzume from './suzune.jpg';
 import HTCA from './HayTraoChoAnh.jpg';
 import GLAL from './GacLaiAuLo.jpg';
@@ -89,6 +91,14 @@ const imgaes = [
     },
     {
         src: Yourname,
+        title: 'none',
+    },
+    {
+        src: ADRNYN,
+        title: 'none',
+    },
+    {
+        src: RK,
         title: 'none',
     },
     {

@@ -15,6 +15,8 @@ import VLDD from './VaiLanDonDua.mp3';
 import Your from './YoruNiKakeru.mp3';
 import Nade from './Nandemonaiya.mp3';
 import Sparkle from './Sparkle.mp3';
+import ADRNYN from './AnhDanhRoiNguoiYeuNay.mp3';
+import RK from './RangKhon.mp3';
 
 const audios = [
     {
@@ -112,6 +114,18 @@ const audios = [
         title: 'Yoru Ni Kakeru',
         artist: 'Yoasobi',
         img: images[13].src,
+    },
+    {
+        src: ADRNYN,
+        title: 'Anh Đánh Rơi Người Yêu này',
+        artist: 'Amee',
+        img: images[15].src,
+    },
+    {
+        src: RK,
+        title: 'Răng Khôn',
+        artist: 'Phí Phương Anh',
+        img: images[16].src,
     },
 ];
 export default audios;
