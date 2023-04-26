@@ -105,7 +105,7 @@ function Player({ setHideInfor, isHideInfor }) {
         <div className={cx('wrapper')}>
             <div className={cx('music-infor')}>
                 <div className={cx('img-wrapper')}>
-                    <img src={audios[audioIndex].img} alt="" />
+                    <img src={audios[audioIndex].img} alt="IMGAGE" loading="lazy" />
                 </div>
                 <div className={cx('title-wrapper')}>
                     <span className={cx('item-title', 'title')}>{audios[audioIndex].title}</span>

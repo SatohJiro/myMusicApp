@@ -29,13 +29,8 @@ function Modal({ onClickWrapper, onClickClose, onClickItemBg, dataBG }) {
                                             onClickItemBg(item);
                                         }}
                                     >
-                                        <div
-                                            className={cx('item-img')}
-                                            style={{
-                                                backgroundImage: item.url,
-                                            }}
-                                        >
-                                            <img src={item.src} alt={item.title}></img>
+                                        <div className={cx('item-img')}>
+                                            <img src={item.src} alt={item.title} loading="lazy"></img>
                                         </div>
                                         <span className={cx('item-title')}>{item.title}</span>
                                     </div>
